@@ -40,7 +40,7 @@ endforeach;
 $payload = json_decode(file_get_contents('php://input'), true); 
     
 /**
- * include all routes and urlsk
+ * include all routes
 */
 foreach (glob(ROUTES."*.php") as $routes):
   include $routes; 

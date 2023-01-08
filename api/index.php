@@ -2,11 +2,15 @@
 $obj = new stdClass();
 
 /**
- * login
+ * Example API: login a user
+ * @return json
  */
 function login_user() {
     global $db, $payload, $obj, $validator;
 
+    /**
+     * validate json payload
+     */
     $validation = $validator->make($payload, [
         'email' => 'required|email',
         'password' => 'required',
@@ -19,28 +23,35 @@ function login_user() {
         exit();
     }
 
+    /**
+     * check if user exists in user table
+     */
     $email = $payload["email"];
-    $user = $db->where("email", $email)->getOne("example-login-table");
+    $user = $db->where("email", $email)->getOne("example-user-table");
     if (!$user) {
         $obj->status = 0;
         $obj->response = "User doesnot exist";
         echo json_encode($obj, JSON_PRETTY_PRINT);
         return;
-    };
+    }
+    ;
 
+    /**
+     * check if passwords match
+     */
     if ($db->count > 0) {
-        if (password_verify($payload["password"], $user["password"])) {  
-            $obj->status = 1; 
-            $obj->response = "Login successful"; 
+        if (password_verify($payload["password"], $user["password"])) {
+            $obj->status = 1;
+            $obj->response = "Login successful";
             echo json_encode($obj, JSON_PRETTY_PRINT);
-            return; 
+            return;
         } else {
             $obj->status = 0;
             $obj->response = "Invalid Password";
             echo json_encode($obj, JSON_PRETTY_PRINT);
             return;
         }
-    } 
+    }
 }
 
 ?>
