@@ -1,10 +1,18 @@
-<?php 
-header_remove("X-Powered-By");
+<?php
+/**
+ * Routing Gateway 
+ * PHP version 7.0
+ */
 
+header_remove("X-Powered-By");
 define('ROUTES', "routes/");
 define('BASEPATH', "api/"); 
 
+/**
+ * Composer
+ */
 require_once __DIR__ . '/vendor/autoload.php'; 
+
 use Steampixel\Route;
 
 /**
@@ -38,6 +46,10 @@ foreach (glob(ROUTES."*.php") as $routes):
   include $routes; 
 endforeach; 
 
+
+/**
+ * Routing
+ */
 Route::run('/');
 
 ?>
