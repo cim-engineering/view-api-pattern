@@ -2,7 +2,7 @@
 use Steampixel\Route; 
 
 /**
- * Example View
+ * Example View (Shows the index page)
  * PHP version 7.0
  */
 

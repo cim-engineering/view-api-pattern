@@ -2,7 +2,7 @@
 use Steampixel\Route;
 
 /**
- * Example API: login a user 
+ * Example API route: login a user 
  * endpoint : http://localhost/v1/user/login
  */
 Route::add('/v1/user/login', function () {
