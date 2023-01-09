@@ -16,7 +16,7 @@ This approach offers many (NOT ALL) of the same benefits as a the general MVC pa
 ## ROUTING
 The router handles the entire URL routing for your project. Checkout [Steampixel's Simple Router](https://github.com/steampixel/simplePHPRouter) to learn more on how to use this fast routing system.
 
-Otherwise you can simply add a new route like this:
+Otherwise you can simply add a new route (to render a view) like this:
 ```php
 Route::add('/auth/signup', function () {
   include 'views/register.html';
