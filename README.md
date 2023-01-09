@@ -62,3 +62,14 @@ Route::add('/user/(.*)', function ($username) {
 ## SERVER CONFIG
 
 In a view-API pattern implementation where the view is a client-side web application and the API is a PHP application, Apache or Nginx would be responsible for serving the client-side view to the user's web browser and handling requests to the server-side API. An [.htaccess] file is included at the root of the project so you will have to configure your web server for URL rewrites.
+
+## DIFFERENCE WITH STANDARD MVC
+The Model-View-Controller (MVC) pattern ideally separates an application into three main components: the model, the view, and the controller. The model represents the data and business logic of the application, the view displays the user interface, and the controller handles user input and communicates with the model and the view.
+
+The view-API pattern is similar to the MVC pattern in that it also involves separating the user interface (view) from the business logic (API). However, there are some key differences between the two patterns:
+
+In the MVC pattern, the view and the controller are typically tightly coupled, meaning they are closely tied to each other and rely on each other to function. In contrast, the view and the API in the view-API pattern are typically more loosely coupled, meaning they have a more decoupled relationship and can function independently of each other.
+
+In the MVC pattern, the model represents the data and business logic of the application, and the view and the controller have direct access to the model. In the view-API pattern, the API acts as an intermediary between the view and the underlying business logic, exposing a set of endpoints that the view can use to access the business logic.
+
+Subjective Opinion : The view-API pattern is better suited to modern web application architectures, where the view is implemented as a client-side application and the API is implemented as a server-side application. In contrast, the MVC pattern is more commonly used in traditional web application architectures, where the view is implemented as a server-side application and the controller handles the communication between the model and the view.
