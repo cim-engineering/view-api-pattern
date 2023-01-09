@@ -25,12 +25,25 @@ Route::add('/auth/signup', function () {
 ```
 A sample route is included in the `/routes` folder
 
+
 ## API
 In this pattern, data/the business logic is accessed through sets of API (Application Programming Interface), which provide a set of functions that the view can use to expose the data. The view communicates with the API using standardized interfaces like HTTP and JSON.
 
-A sample api is included in the `/routes` folder
+A sample api is included in the `/routes` folder. Here is an example of how it works :
+1. The user interacts with the view, such asa button click or form input 
+1. The view handles this input and prepares an HTTP request to the appropriate API endpoint. The endpoint is defined in `/routes/Api.php` as a route. For example
+```php
+Route::add('/v1/user/login', function () {
+    header('Content-Type: application/json');
+    return login_user();
+}, 'POST');
+```
+3. The view sends the HTTP request to the API (using JavaScript). The API receives the request and processes it, using the underlying business logic to perform the requested action or retrieve the requested data. The API generates a response in the form of JSON or XML data and sends it back to the view.
+4. The view then receives the response and processes it, using the data to update the user interface or perform some other action.
+
 
 ## VIEWS
+
 In the context of the view-API pattern, a view is a component of a software application that is responsible for rendering the user interface and handling user input.
 
 The view is typically implemented using a combination of HTML, CSS, and JavaScript, and it is responsible for displaying the user interface to the user and allowing the user to interact with it. 
