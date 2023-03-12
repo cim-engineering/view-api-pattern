@@ -1,12 +1,16 @@
 <?php
 
 /**
+ * root
+ */
+$root = $_SERVER["DOCUMENT_ROOT"]. "/";
+/**
  * Composer
  */
-require_once __DIR__ . '/vendor/autoload.php';
+require_once $root  . '/vendor/autoload.php';
 
 use Ahc\Env\Loader;
-(new Loader)->load(__DIR__ .'.env'); 
+(new Loader)->load($root .'.env'); 
 use Ahc\Env\Retriever;
 
 /**
